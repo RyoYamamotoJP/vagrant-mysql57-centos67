@@ -1,6 +1,7 @@
 Vagrant.configure(2) do |config|
   config.vm.box = 'bento/centos-6.7'
   config.vm.provision :shell, inline: <<-SHELL
+    sudo cp -p /usr/share/zoneinfo/Japan /etc/localtime
     sudo rpm --import http://dev.mysql.com/doc/refman/5.7/en/checking-gpg-signature.html
     sudo rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
     sudo yum install -y mysql-community-server
